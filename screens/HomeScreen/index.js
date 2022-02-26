@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { View, Text, Image, ScrollView, Linking, SafeAreaView } from 'react-native'
 import axios from 'axios'
-import { Card, Title, Paragraph } from 'react-native-paper'
+import {Card, Title, Paragraph} from 'react-native-paper'
 
 export default class HomeScreen extends Component {
     state = {
@@ -42,6 +42,7 @@ export default class HomeScreen extends Component {
         return (
             <SafeAreaView>
                 <ScrollView>
+                    {/*  header */}
                     <View style={{borderColor: 'lightgrey', borderBottomWidth: 1}}>
                         <Text style={{fontSize: 32, marginLeft: 30, marginTop: 25, marginBottom: 25}}>EXPLORE</Text>
                     </View>
@@ -53,23 +54,25 @@ export default class HomeScreen extends Component {
                             shadowOffset: { height: 0, width: 0 }, shadowOpacity: 0, shadowRadius: 0 }}
                             onPress={()=>{Linking.openURL(`${url}`)}}
                             >
-                                <View style={{flexDirection:'column'}}>
+                                <View style={{flexDirection:'column', marginBottom:10}}>
                                     {/*  Image */}
                                     <View style={{marginTop: 25}}>
                                         <Image style={{width:300, height:200}} source={{uri: urlToImage}} />
                                     </View>  
-                                    {/*  Text */}
-                                    <View style={{marginTop: 10}}>
+                                    {/*  Title */}
+                                    <View style={{marginTop: 15}}>
                                         <Title>{title}</Title>
                                     </View>
                                     
                                 </View>
-                                <View style={{marginBottom: 10}}>
+                                {/*  Description */}
+                                <View style={{marginBottom: 15}}>
                                     <Paragraph>{description}</Paragraph>
                                 </View>
+                                {/*  author and date */}
                                 <View style={{marginBottom: 25}}>
-                                    <Text style={{fontWeight: 'bold'}}>{author}</Text>
-                                    <Text>{date}</Text>
+                                        <Text style={{fontWeight: 'bold'}}>{author}</Text>
+                                        <Text>{date}</Text>
                                 </View>
                             </Card>
                         );
